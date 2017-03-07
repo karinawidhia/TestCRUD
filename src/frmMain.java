@@ -438,7 +438,15 @@ public class frmMain extends javax.swing.JFrame {
         txtNIS.setText(tblData.getValueAt(baris,0).toString());
         txtNama.setText(tblData.getValueAt(baris,1).toString());
         txtTempat.setText(tblData.getValueAt(baris,2).toString());
-        tgl.getDate().toString();
+        
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateformat = null;
+        try {
+            dateformat = date.parse(tblData.getValueAt(baris, 3).toString());
+        } catch (ParseException ex) {
+        
+        }
+        tgl.setDate(dateformat);
         //tanggal = dateFormat.format(tanggal.getDate());
         if ("Laki-laki".equals(tblData.getValueAt(baris,4).toString())){
         rdLaki.setSelected(true);
